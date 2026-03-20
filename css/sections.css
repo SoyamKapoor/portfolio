@@ -150,34 +150,41 @@
 @media(max-width:1024px){.proj-row{grid-template-columns:repeat(2,1fr)}}
 
 @media(max-width:768px){
-  /* Remove heavy GPU effects */
+  /* Disable heavy GPU effects on mobile */
   .pc,.sk,.cc,.atile,.radar-wrap,.pubw,.modal,.mdr,.ahl,.fi,.fta{
-    backdrop-filter:none;
-    -webkit-backdrop-filter:none;
+    backdrop-filter:none!important;
+    -webkit-backdrop-filter:none!important;
   }
-  /* Disable scroll animations for performance */
+  /* Disable scroll animations for smooth scrolling */
   .rv,.rvl,.rvr,.rvs,.rvc{
     opacity:1!important;
     transform:none!important;
     transition:none!important;
   }
-  /* Project grid */
-  .proj-row{grid-template-columns:1fr}
-  /* About */
-  .ag{grid-template-columns:1fr;gap:2rem}
-  /* Skills */
-  .skills-layout{grid-template-columns:1fr}
-  .sk.s2{grid-column:span 1}
-  /* Contact */
-  .frow{grid-template-columns:1fr}
+  /* Experience — stack vertically, show all content */
+  .tli{display:flex!important;flex-direction:column!important;gap:.4rem;padding-bottom:2rem}
+  .tld{text-align:left!important;display:flex!important;flex-direction:row!important;flex-wrap:wrap;gap:.5rem;align-items:center;margin-bottom:.5rem;padding-top:0}
+  .tld-d{font-size:.72rem;color:var(--acc);line-height:1.4}
+  .tld-c{font-size:.72rem;color:var(--t3);margin-top:0}
+  .tlv{display:none!important}
+  .tlr{font-size:1.1rem;margin-bottom:.4rem}
+  .tlbadge{font-size:.65rem;margin-bottom:.5rem}
+  .tlb li{font-size:.82rem;padding-left:1.2rem}
+  /* Contact — stack name/email fields */
+  .frow{grid-template-columns:1fr!important}
   .fsocs{flex-wrap:wrap;gap:.5rem;justify-content:center}
   .fsb{width:44px;height:44px;font-size:1rem}
-  /* Cards */
-  .pc{transform:none!important}
-  .cc{grid-template-columns:1fr}
-  /* Publication */
-  .pubw{grid-template-columns:1fr;text-align:center;gap:1.5rem;padding:1.5rem}
+  /* Publication — stack vertically */
+  .pubw{grid-template-columns:1fr!important;text-align:center;gap:1.5rem;padding:1.5rem}
   .pub-seal{margin:0 auto}
+  /* Projects */
+  .proj-row{grid-template-columns:1fr!important}
+  .pc{transform:none!important}
+  /* About */
+  .ag{grid-template-columns:1fr!important;gap:2rem}
+  /* Skills */
+  .skills-layout{grid-template-columns:1fr!important}
+  .sk.s2{grid-column:span 1!important}
   /* Radar */
   .radar-wrap{max-width:100%}
 }

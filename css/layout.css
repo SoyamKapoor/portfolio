@@ -150,8 +150,8 @@ footer{padding:2.5rem 5%;border-top:1px solid var(--b);display:flex;align-items:
   section{padding:4rem 5%}
   .proj-section{padding:4rem 5%}
   .bento{grid-template-columns:1fr}
-  .pubw{grid-template-columns:1fr;gap:1.5rem;padding:1.5rem}
-  .frow{grid-template-columns:1fr}
+  .pubw{grid-template-columns:1fr!important;gap:1.5rem;padding:1.5rem}
+  .frow{grid-template-columns:1fr!important}
   body{cursor:auto}
   #cdot,#cring,#clabel{display:none}
   footer{flex-direction:column;text-align:center;gap:.6rem}
@@ -161,14 +161,13 @@ footer{padding:2.5rem 5%;border-top:1px solid var(--b);display:flex;align-items:
   .pb1,.pb2{display:none}
   .pframe::before,.pframe::after{animation:none}
   .blob{display:none}
-  .tli{display:flex;flex-direction:column;gap:.4rem;padding-bottom:2.5rem}
-  .tld{text-align:left;display:flex;flex-direction:row;flex-wrap:wrap;gap:.5rem;align-items:center;margin-bottom:.4rem}
+  .tli{display:flex!important;flex-direction:column!important;gap:.4rem;padding-bottom:2.5rem}
+  .tld{text-align:left!important;display:flex!important;flex-direction:row;flex-wrap:wrap;gap:.5rem;align-items:center;margin-bottom:.4rem}
   .tld-d{font-size:.7rem;color:var(--acc)}
   .tld-c{font-size:.72rem;color:var(--t3);margin-top:0}
-  .tlv{display:none}
+  .tlv{display:none!important}
   .tlr{font-size:1.15rem;margin-bottom:.4rem}
   .tlbadge{font-size:.65rem;margin-bottom:.5rem}
-  .tlb{padding-left:0}
   .tlb li{font-size:.82rem;padding-left:1.2rem}
   .hstats{gap:1.2rem}
   h1.hn{font-size:clamp(2.8rem,12vw,4.5rem)}
