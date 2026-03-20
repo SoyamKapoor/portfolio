@@ -70,7 +70,10 @@ document.querySelectorAll('[data-magnetic]').forEach(btn => {
 });
 
 /* ═══ PARALLAX ON SCROLL ═══ */
-function initParallax() {
+// function initParallax() {
+//   window.addEventListener('scroll', () => {
+  function initParallax() {
+  if (window.innerWidth < 768) return;
   window.addEventListener('scroll', () => {
     const sy = window.scrollY;
     const b1 = document.getElementById('pb1');
@@ -114,7 +117,10 @@ document.querySelectorAll('.sk').forEach(sk => {
 });
 
 /* ═══ 3D TILT PROJECT CARDS ═══ */
-document.querySelectorAll('[data-tilt]').forEach(card => {
+// document.querySelectorAll('[data-tilt]').forEach(card => {
+//   card.addEventListener('mousemove', e => {
+  document.querySelectorAll('[data-tilt]').forEach(card => {
+  if (window.innerWidth < 768) return;
   card.addEventListener('mousemove', e => {
     const r   = card.getBoundingClientRect();
     const rx2 =  (e.clientY - r.top  - r.height / 2) / r.height * 10;

@@ -121,3 +121,10 @@ body::after{
 .rph{position:relative;overflow:hidden}
 .rc{position:absolute;border-radius:50%;background:rgba(255,255,255,.18);transform:scale(0);animation:rca .6s linear;pointer-events:none}
 @keyframes rca{to{transform:scale(4);opacity:0}}
+
+@media(max-width:768px){
+  body::after{opacity:.15}
+  .rv,.rvl,.rvr,.rvs{
+    transform:translateY(20px);
+  }
+}

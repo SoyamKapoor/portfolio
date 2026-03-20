@@ -11,10 +11,15 @@
    · Pauses when tab is hidden
 ═══════════════════════════════════════ */
 
+// (function initThree() {
+//   const canvas = document.getElementById('threecv');
+//   if (!canvas || typeof THREE === 'undefined') return;
+
 (function initThree() {
+  if (window.innerWidth < 768) return;
   const canvas = document.getElementById('threecv');
   if (!canvas || typeof THREE === 'undefined') return;
-
+  
   /* ── Renderer — antialias OFF, pixel ratio capped at 1 ── */
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: false, alpha: true });
   renderer.setPixelRatio(1);                          // was Math.min(devicePixelRatio, 2)
