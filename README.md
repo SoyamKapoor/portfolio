@@ -90,4 +90,4 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
-<p align="center">Crafted with passion by Soyam Kapoor · © 2025</p>
+<p align="center">Crafted with passion by Soyam Kapoor · © 2026</p>
