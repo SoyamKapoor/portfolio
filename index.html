@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<!-- EDIT: Page title -->
+<title>Soyam Kapoor — Data Scientist &amp; Python Developer</title>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+<!-- Stylesheets — order matters -->
+<link rel="stylesheet" href="css/base.css"/>
+<link rel="stylesheet" href="css/layout.css"/>
+<link rel="stylesheet" href="css/sections.css"/>
+</head>
+<body>
+
+<!-- ═══ LOADER ═══ -->
+<div id="loader">
+  <div class="ll">
+    <!-- EDIT: Your name letters, one <span> per letter -->
+    <span>S</span><span>O</span><span>Y</span><span>A</span><span>M</span>.<span class="lc"></span>
+  </div>
+  <div class="lbar-w"><div class="lbar" id="lbar"></div></div>
+  <div class="ltxt">INITIALISING PORTFOLIO</div>
+  <div class="lpct" id="lpct">0%</div>
+</div>
+
+<!-- Cursor elements -->
+<div id="cdot"></div>
+<div id="cring"></div>
+<div id="clabel"></div>
+
+<!-- Scroll progress bar -->
+<div id="pbar"></div>
+
+<!-- Three.js canvas -->
+<canvas id="threecv"></canvas>
+
+<!-- Background layers -->
+<div class="gbg"></div>
+<div class="vig"></div>
+
+<!-- ═══ NAV ═══ -->
+<nav id="nav">
+  <!-- EDIT: Your logo name -->
+  <div class="nlogo">SOYAM<span class="dot">.</span></div>
+  <ul class="npill">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#publications">Research</a></li>
+    <li><a href="#contact" class="nhire rph"><i class="fas fa-paper-plane"></i>Hire Me</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:.8rem">
+    <button id="themetoggle" onclick="toggleTheme()" title="Toggle light/dark mode">
+      <i class="fas fa-sun" id="themeicon"></i>
+    </button>
+    <div class="hbg" id="hbg" onclick="togMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile menu overlay + drawer -->
+<div class="mov" id="mov" onclick="togMenu()"></div>
+<div class="mdr" id="mdr">
+  <a href="#about"          onclick="togMenu()"><i class="fas fa-user"></i>About</a>
+  <a href="#skills"         onclick="togMenu()"><i class="fas fa-code"></i>Skills</a>
+  <a href="#experience"     onclick="togMenu()"><i class="fas fa-briefcase"></i>Experience</a>
+  <a href="#projects"       onclick="togMenu()"><i class="fas fa-folder"></i>Projects</a>
+  <a href="#certifications" onclick="togMenu()"><i class="fas fa-certificate"></i>Certifications</a>
+  <a href="#publications"   onclick="togMenu()"><i class="fas fa-newspaper"></i>Research</a>
+  <a href="#contact"        onclick="togMenu()"><i class="fas fa-envelope"></i>Contact</a>
+</div>
+
+<!-- ═══ HERO ═══ -->
+<section id="hero">
+  <div class="blob b1 para-slow" id="pb1"></div>
+  <div class="blob b2 para-mid"  id="pb2"></div>
+  <div class="blob b3 para-fast" id="pb3"></div>
+  <div class="hi">
+    <div>
+      <!-- EDIT: Badge text -->
+      <div class="ebrow rv">
+        <span class="pls"></span>Available for Full-Time Roles &amp; Internships<span class="pls"></span>
+      </div>
+      <!-- Split-text name — edit in js/animations.js → splitText() -->
+      <h1 class="hn">
+        <span class="split-line" id="hl1"></span>
+        <span class="split-line" id="hl2"></span>
+      </h1>
+      <!-- Typed roles — edit in js/animations.js → startTyping() -->
+      <div class="htyped"><span id="tel"></span><span id="cur">_</span></div>
+      <!-- EDIT: Your tagline -->
+      <p class="hdesc">Final-year Computer Systems Engineering student transforming complex datasets into intelligent, deployable systems — specialising in Data Science, Machine Learning and research that drives real-world impact.</p>
+      <div class="hacts">
+        <!-- EDIT: Link to your actual CV/resume file -->
+        <a href="assets/CV_SOYAM.pdf" target="_blank" class="btn btnp rph" data-magnetic data-label="Download">
+          <i class="fas fa-download"></i>Download CV
+        </a>
+        <a href="#projects" class="btn btng rph" data-magnetic data-label="Explore">
+          <i class="fas fa-folder-open"></i>View Projects
+        </a>
+      </div>
+      <!-- EDIT: data-target = your real numbers -->
+      <div class="hstats">
+        <div><div class="hsn" data-target="25">0+</div><div class="hsl">PROJECTS</div></div>
+        <div><div class="hsn" data-target="10">0+</div><div class="hsl">CERTIFICATIONS</div></div>
+        <div><div class="hsn" data-target="1">0</div><div class="hsl">IEEE RESEARCH PAPER</div></div>
+      </div>
+    </div>
+    <div class="pcol para-mid" id="photocol">
+      <div class="pframe">
+        <div class="pin">
+            <img src="assets/front_face.png" alt="Soyam Kapoor"
+                style="width:100%;height:100%;object-fit:cover;border-radius:27px;"/>
+          <!-- <div class="pph"><i class="fas fa-user-circle"></i><span>// photo.webp</span></div> -->
+        </div>
+      </div>
+      <div class="pb1">
+        <span class="pb1-ico">🤖</span>
+        <div class="pb1-txt"><strong>Data Science &amp; Machine Learning</strong>Building intelligent systems</div>
+      </div>
+      <div class="pb2">
+        <span class="kw">current</span> status =<br>
+        <span class="str">"open_to_work"</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MARQUEE ═══ -->
+<div class="mq">
+  <div class="mqt">
+    <!-- EDIT: Add/remove your tech stack items. Duplicate the full list once for seamless loop. -->
+    <span class="mtag"><i class="fas fa-circle"></i>Python</span>
+    <span class="mtag"><i class="fas fa-circle"></i>Machine Learning</span>
+    <span class="mtag"><i class="fas fa-circle"></i>TensorFlow</span>
+    <span class="mtag"><i class="fas fa-circle"></i>Data Science</span>
+    <span class="mtag"><i class="fas fa-circle"></i>Deep Learning</span>
+    <span class="mtag"><i class="fas fa-circle"></i>Scikit-learn</span>
+    <span class="mtag"><i class="fas fa-circle"></i>Pandas</span>
+    <span class="mtag"><i class="fas fa-circle"></i>NumPy</span>
+    <span class="mtag"><i class="fas fa-circle"></i>Data Visualisation</span>
+    <span class="mtag"><i class="fas fa-circle"></i>IEEE Research</span>
+    <span class="mtag"><i class="fas fa-circle"></i>NLP</span>
+    <span class="mtag"><i class="fas fa-circle"></i>Computer Vision</span>
+    <span class="mtag"><i class="fas fa-circle"></i>Jupyter</span>
+    <span class="mtag"><i class="fas fa-circle"></i>Git</span>
+    <!-- Duplicate for seamless infinite loop -->
+    <span class="mtag"><i class="fas fa-circle"></i>Python</span>
+    <span class="mtag"><i class="fas fa-circle"></i>Machine Learning</span>
+    <span class="mtag"><i class="fas fa-circle"></i>TensorFlow</span>
+    <span class="mtag"><i class="fas fa-circle"></i>Data Science</span>
+    <span class="mtag"><i class="fas fa-circle"></i>Deep Learning</span>
+    <span class="mtag"><i class="fas fa-circle"></i>Scikit-learn</span>
+    <span class="mtag"><i class="fas fa-circle"></i>Pandas</span>
+    <span class="mtag"><i class="fas fa-circle"></i>NumPy</span>
+    <span class="mtag"><i class="fas fa-circle"></i>Data Visualisation</span>
+    <span class="mtag"><i class="fas fa-circle"></i>IEEE Research</span>
+    <span class="mtag"><i class="fas fa-circle"></i>NLP</span>
+    <span class="mtag"><i class="fas fa-circle"></i>Computer Vision</span>
+    <span class="mtag"><i class="fas fa-circle"></i>Jupyter</span>
+    <span class="mtag"><i class="fas fa-circle"></i>Git</span>
+  </div>
+</div>
+
+<!-- ═══ ABOUT ═══ -->
+<section id="about" class="alt">
+  <div class="si">
+    <div class="stag rv">About Me</div>
+    <h2 class="rv gh scramble-head" data-g="ABOUT" data-scramble="WHO I AM">WHO I AM</h2>
+    <div class="ag">
+      <div class="atxt">
+        <!-- EDIT: Your bio paragraphs -->
+        <p class="rv">I'm <strong>Soyam Kapoor</strong>, a final-year <em>Computer Systems Engineering</em> student with a deep passion for data science, machine learning, and building intelligent systems that solve real problems.</p>
+        <p class="rv d1">My journey spans hands-on internship experience, independent ML and data projects, and academic research accepted at <strong>IEEE ICOMET 2026</strong> — a testament to my commitment to pushing beyond the classroom. Along the way, I have been recognized as a <strong>Top Ambassador for Skills4U AI Virtual Conference</strong>, ranked among the <strong>Top 4 Interns out of 632</strong> at Pakistan Career Fair Internship, and honored with the <strong>SEEF Scholarship</strong>.</p>
+        <p class="rv d2"><!-- EDIT: Personal touch -->I'm driven by curiosity and a belief that well-engineered data systems can transform industries. Beyond academics and projects, I enjoy playing badminton and exploring new technologies and emerging tech stacks</p>
+        <!-- EDIT: University + graduation year -->
+        <div class="ahl rv d3">
+          <i class="fas fa-graduation-cap"></i>
+          <span><strong>B.E. Computer Systems Engineering</strong> — Sukkur IBA University, Expected Graduation: 2026</span>
+        </div>
+      </div>
+      <div class="atiles">
+        <!-- EDIT: data-target = your real number -->
+        <div class="atile rv d1">
+          <div class="atile-ic"><i class="fas fa-folder-open"></i></div>
+          <div><div class="atile-n" data-target="25">0+</div><div class="atile-l">PROJECTS COMPLETED</div></div>
+        </div>
+        <div class="atile rv d2">
+          <div class="atile-ic"><i class="fas fa-certificate"></i></div>
+          <div><div class="atile-n" data-target="10">0+</div><div class="atile-l">CERTIFICATIONS</div></div>
+        </div>
+        <div class="atile rv d3">
+          <div class="atile-ic" style="background:var(--od);border-color:var(--og);color:var(--o)"><i class="fas fa-newspaper"></i></div>
+          <div><div class="atile-n">1</div><div class="atile-l">IEEE PUBLICATION</div></div>
+        </div>
+        <!-- EDIT: internship months -->
+        <div class="atile rv d4">
+          <div class="atile-ic" style="background:var(--vd);border-color:var(--vg);color:var(--v)"><i class="fas fa-briefcase"></i></div>
+          <div><div class="atile-n">6 Months</div><div class="atile-l">INTERNSHIP EXPERIENCE</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="sdiv"></div>
+
+<!-- ═══ SKILLS ═══ -->
+<section id="skills">
+  <div class="si">
+    <div class="stag rv">Technical Skills</div>
+    <h2 class="rv gh scramble-head" data-g="SKILLS" data-scramble="WHAT I WORK WITH">WHAT I WORK WITH</h2>
+    <p class="ssub rv">My toolkit for building data-driven solutions and intelligent systems.</p>
+    <div class="skills-layout">
+      <div class="bento">
+        <div class="sk rv" id="sk1">
+          <h3><i class="fas fa-code"></i>Languages</h3>
+          <div class="tw">
+            <span class="tag tc">Python</span>
+            <!-- EDIT: Add more language tags -->
+            <span class="tag tc">Java</span>
+            <span class="tag tc">MATLAB Programming</span>
+            <span class="tag tc">Kotlin</span>
+            <span class="tag tc">Arduino Programming</span>
+            <span class="tag tc">C++</span>
+            <span class="tag tc">HTML, CSS, JavaScript</span>
+            <span class="tag tc">C#</span>
+            <span class="tag tc">SQL</span>
+
+          </div>
+        </div>
+        <div class="sk rv d1" id="sk2">
+          <h3><i class="fas fa-brain"></i>Data Science &amp; ML</h3>
+          <div class="tw">
+            <span class="tag tv">Scikit-learn</span>
+            <span class="tag tv">TensorFlow</span>
+            <!-- EDIT: Add e.g. PyTorch, Keras, XGBoost -->
+            <span class="tag tv">NumPy</span>
+            <span class="tag tv">Pandas</span>
+            <span class="tag tv">SHAP</span>
+            <span class="tag tv">SMOTE</span>
+            <span class="tag tv">Matplotlib</span>
+            <span class="tag tv">Speech Recognition</span>
+            <span class="tag tv">TF-IDF</span>
+            <span class="tag tv">NLTK</span>
+            <span class="tag tv">Librosa</span>  
+          </div>
+        </div>
+        <div class="sk s2 rv d2" id="sk3">
+          <h3><i class="fas fa-signal"></i>Proficiency Levels</h3>
+          <!-- EDIT: Skill names, % text, and data-width values -->
+          <div class="sbar"><div class="sbh"><span class="sbn">Python</span><span class="sbp">90%</span></div><div class="sbt"><div class="sbf" data-width="90"></div></div></div>
+          <div class="sbar"><div class="sbh"><span class="sbn">Machine Learning</span><span class="sbp">85%</span></div><div class="sbt"><div class="sbf" data-width="85"></div></div></div>
+          <div class="sbar"><div class="sbh"><span class="sbn">Data Visualisation</span><span class="sbp">88%</span></div><div class="sbt"><div class="sbf" data-width="88"></div></div></div>
+        </div>
+        <div class="sk rv d1" id="sk4">
+          <h3><i class="fas fa-database"></i>ML Ops &amp; Automation</h3>
+          <div class="tw">
+            <span class="tag tc">CI/CD (GitHub Actions)</span>
+            <span class="tag tc">Model Deployment</span>
+            <span class="tag tc">Data Pipelines</span>
+            <!-- EDIT: Add e.g. Seaborn, Plotly, Power BI, Tableau -->
+            <!-- <span class="tag tw2">ADD SKILL</span> -->
+          </div>
+        </div>
+        <div class="sk rv d2" id="sk5">
+          <h3><i class="fas fa-tools"></i>Tools &amp; Platforms</h3>
+          <div class="tw">
+            <!-- EDIT: Add e.g. Docker, VS Code, GCP, AWS, Colab -->
+            <span class="tag to">Git &amp; Github</span>
+            <span class="tag to">Jupyter</span>
+            <span class="tag to">VS Code</span>
+            <span class="tag to">Hopsworks Feature Store</span>
+            <span class="tag to">Streamlit</span>
+            <span class="tag to">Google Collab</span>
+            <span class="tag to">Kaggle</span>
+          </div>
+        </div>
+      </div>
+      <!-- Radar Chart -->
+      <div class="radar-wrap rv d2">
+        <h3><i class="fas fa-spider"></i>Skill Radar</h3>
+        <canvas id="radarChart"></canvas>
+        <!-- EDIT: Legend labels must match radar labels in main.js → initRadar() -->
+        <div class="radar-legend">
+          <div class="rl-item"><div class="rl-dot" style="background:#00f5d4"></div>Python</div>
+          <div class="rl-item"><div class="rl-dot" style="background:#7c63ff"></div>ML</div>
+          <div class="rl-item"><div class="rl-dot" style="background:#ff6b35"></div>Deep Learning</div>
+          <div class="rl-item"><div class="rl-dot" style="background:#00f5d4"></div>Data Analysis</div>
+          <div class="rl-item"><div class="rl-dot" style="background:#7c63ff"></div>NLP</div>
+          <div class="rl-item"><div class="rl-dot" style="background:#ff6b35"></div>Research</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="sdiv"></div>
+
+<!-- ═══ EXPERIENCE ═══ -->
+<section id="experience" class="alt">
+  <div class="si">
+    <div class="stag rv">Experience</div>
+    <h2 class="rv gh scramble-head" data-g="WORK" data-scramble="WHERE I'VE WORKED">WHERE I'VE WORKED</h2>
+    <p class="ssub rv">Building real-world impact through data-driven work.</p>
+    <div class="tl">
+
+      <!-- ── INTERNSHIP — EDIT ALL FIELDS ── -->
+      <div class="tli rv">
+        <div class="tld">
+          <!-- EDIT: Dates e.g. Jun 2024 / Aug 2024 -->
+          <div class="tld-d">Sep 2025<br>Nov 2025</div>
+          <!-- EDIT: Company name -->
+          <div class="tld-c">10Pearls</div>
+        </div>
+        <div class="tlv"><div class="tlvd"></div><div class="tlvl"></div></div>
+        <div>
+          <!-- EDIT: Role title -->
+          <div class="tlr">Data Science Intern</div>
+          <!-- EDIT: Employment type -->
+          <div class="tlbadge"><i class="fas fa-circle" style="font-size:.46rem"></i>Internship · Remote</div>
+          <ul class="tlb">
+            <!-- EDIT: Real bullet points — quantify everything! -->
+            <li>Built an end-to-end AQI prediction and monitoring system using Python-based machine learning models, integrating OpenWeather API and Hopsworks Feature Store to generate accurate 3-day forecasts with a live Streamlit dashboard.</li>
+            <li>Engineered and managed feature pipelines in Hopsworks, implementing automated data ingestion, scheduled updates, and model retraining workflows using GitHub Actions.</li>
+            <li>Automated the entire ML pipeline, significantly improving system efficiency and enabling real-time air quality monitoring with minimal manual intervention.</li>
+          </ul>
+        </div>
+      </div>
+
+
+      <div class="tli rv">
+        <div class="tld">
+          <!-- EDIT: Dates e.g. Jun 2024 / Aug 2024 -->
+          <div class="tld-d">Sept 2025<br>Oct 2025</div>
+          <!-- EDIT: Company name -->
+          <div class="tld-c">Skills4U</div>
+        </div>
+        <div class="tlv"><div class="tlvd"></div><div class="tlvl"></div></div>
+        <div>
+          <!-- EDIT: Role title -->
+          <div class="tlr">Ambassador - AI Virtual Conference 2025</div>
+          <!-- EDIT: Employment type -->
+          <div class="tlbadge"><i class="fas fa-circle" style="font-size:.46rem"></i>Apprenticeship · Remote</div>
+          <ul class="tlb">
+            <!-- EDIT: Real bullet points — quantify everything! -->
+            <li>Selected as Top Ambassador for the Skills4U AI Virtual Conference, representing the event to a broader student and professional audience.</li>
+            <li>Promoted AI literacy and conference participation across academic networks, contributing to community outreach and engagement.</li>
+          </ul>
+        </div>
+      </div>
+
+
+      <div class="tli rv">
+        <div class="tld">
+          <!-- EDIT: Dates e.g. Jun 2024 / Aug 2024 -->
+          <div class="tld-d">Aug 2025<br>Sep 2025</div>
+          <!-- EDIT: Company name -->
+          <div class="tld-c">Fluxxion</div>
+        </div>
+        <div class="tlv"><div class="tlvd"></div><div class="tlvl"></div></div>
+        <div>
+          <!-- EDIT: Role title -->
+          <div class="tlr">Canva (Graphic Design) Summer Fellowship</div>
+          <!-- EDIT: Employment type -->
+          <div class="tlbadge"><i class="fas fa-circle" style="font-size:.46rem"></i>Apprenticeship · Remote</div>
+          <ul class="tlb">
+            <!-- EDIT: Real bullet points — quantify everything! -->
+            <li>Selected for the Fluxxion Summer Fellowship 2025 in Canva Graphic Design, a competitive program conducted in collaboration with Google Developers Group UET, focusing on advanced design and digital content creation.</li>
+            <li>Designed professional, multi-platform visual content by applying core principles of branding, visual communication, and creative design.</li>
+            <li>Developed a personal design portfolio and gained practical experience in client-focused freelancing and content strategy.</li>
+          </ul>
+        </div>
+      </div>
+
+
+
+      <div class="tli rv">
+        <div class="tld">
+          <!-- EDIT: Dates e.g. Jun 2024 / Aug 2024 -->
+          <div class="tld-d">June 2025<br>Aug 2025</div>
+          <!-- EDIT: Company name -->
+          <div class="tld-c">Pakistan Career Fair</div>
+        </div>
+        <div class="tlv"><div class="tlvd"></div><div class="tlvl"></div></div>
+        <div>
+          <!-- EDIT: Role title -->
+          <div class="tlr">Career Development Intern</div>
+          <!-- EDIT: Employment type -->
+          <div class="tlbadge"><i class="fas fa-circle" style="font-size:.46rem"></i>Internship · Remote</div>
+          <ul class="tlb">
+            <!-- EDIT: Real bullet points — quantify everything! -->
+            <li>Selected as a Career Development Intern at Pakistan Career Fair (PCF), participating in a structured program focused on career readiness and industry-relevant soft skills.</li>
+            <li>Engaged in mentor-led sessions on LinkedIn optimization, communication, public speaking, interview preparation, and professional networking.</li>
+            <li>Strengthened core competencies including communication, collaboration, presentation, and digital branding through practical tasks and real-world feedback.</li>
+            <li>Ranked <strong>Top 4 out of 632 interns</strong> nationwide, recognized for outstanding performance and consistent contribution throughout the program.</li>
+          </ul>
+        </div>
+      </div>
+
+
+      <div class="tli rv">
+        <div class="tld">
+          <!-- EDIT: Dates e.g. Jun 2024 / Aug 2024 -->
+          <div class="tld-d">Apr 2025<br>May 2025</div>
+          <!-- EDIT: Company name -->
+          <div class="tld-c">DevelopersHub Corporation</div>
+        </div>
+        <div class="tlv"><div class="tlvd"></div><div class="tlvl"></div></div>
+        <div>
+          <!-- EDIT: Role title -->
+          <div class="tlr">Data Science and Analytics Intern</div>
+          <!-- EDIT: Employment type -->
+          <div class="tlbadge"><i class="fas fa-circle" style="font-size:.46rem"></i>Internship · Remote</div>
+          <ul class="tlb">
+            <!-- EDIT: Real bullet points — quantify everything! -->
+            <li>Developed and deployed sentiment analysis and fraud detection models using Logistic Regression and Random Forest, applying SMOTE to address class imbalance and improve model performance.</li>
+            <li>Utilized SHAP for model interpretability, enabling better understanding of feature importance and improving transparency in predictions.</li>
+            <li>Optimized model performance through preprocessing, feature engineering, and evaluation techniques to ensure reliable and accurate results.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ── COPY THE .tli BLOCK ABOVE FOR EACH ADDITIONAL ROLE ── -->
+
+    </div>
+  </div>
+</section>
+<div class="sdiv"></div>
+
+<!-- ═══ PROJECTS — HORIZONTAL SCROLL ═══ -->
+<div class="proj-section" id="projects">
+  <div class="proj-head si">
+    <div class="stag rv">Projects</div>
+    <h2 class="rv gh scramble-head" data-g="BUILD" data-scramble="THINGS I'VE BUILT">THINGS I'VE BUILT</h2>
+    <p class="ssub rv" style="margin-bottom:1rem">End-to-end solutions — from data to deployment →</p>
+  </div>
+  <div class="proj-scroll-wrap" id="projScroll">
+    <div class="proj-row">
+
+      <!-- ── PROJECT 1 — EDIT ALL FIELDS ── -->
+      <div class="pc" data-tilt>
+        <!-- <div class="pnum">// 01</div> -->
+        <div class="ph">
+          <!-- EDIT: Project name -->
+          <div class="pt">10Pearls AQI Prediction Bot For Sukkur</div>
+          <a href="https://github.com/SoyamKapoor/10_Pearls_AQI_Predict_Bot" target="_blank" class="parr"><i class="fas fa-arrow-up-right-from-square"></i></a>
+        </div>
+        <!-- EDIT: Short card description -->
+        <p class="pd">A real-time Air Quality Index (AQI) prediction and monitoring dashboard for Sukkur, Pakistan, built using Streamlit, Hopsworks Feature Store, Machine Learning, and the OpenWeather API.</p>
+        <div class="pst"><span class="tag tc">Machine Learning</span><span class="tag to">MLOps / CI-CD (GitHub Actions)</span><span class="tag tv">Data Engineering (Real-time Data Pipelines)</span></div>
+        <div class="plinks">
+          <!-- EDIT: GitHub URL -->
+          <a href="https://github.com/SoyamKapoor/10_Pearls_AQI_Predict_Bot" target="_blank" class="plink"><i class="fab fa-github"></i>Source Code</a>
+          <!-- EDIT: Remove if no live demo -->
+          <!-- <a href="YOUR_LIVE_DEMO" target="_blank" class="plink"><i class="fas fa-external-link-alt"></i>Live Demo</a> -->
+        </div>
+        <!-- data-idx must match index in MODAL_DATA in main.js -->
+        <!-- <button class="pmore" onclick="openModal(0)"><i class="fas fa-expand"></i>View Details <i class="fas fa-arrow-right"></i></button> -->
+      </div>
+
+      <!-- ── PROJECT 2 ── -->
+      <div class="pc" data-tilt>
+        <!-- <div class="pnum">// 02</div> -->
+        <div class="ph"><div class="pt">Library Management System</div><a href="https://github.com/SoyamKapoor/library-management-system" target="_blank" class="parr"><i class="fas fa-arrow-up-right-from-square"></i></a></div>
+        <p class="pd">A Python & MySQL-based Library Management System with Tkinter GUI. Features include user authentication, role-based access, book/member management, transactions, and report export. Built using ttkbootstrap, bcrypt, and pandas.</p>
+        <div class="pst"><span class="tag tc">Database Design & SQL</span><span class="tag to">Software Development and Debugging </span></div>
+        <div class="plinks"><a href="https://github.com/SoyamKapoor/library-management-system" target="_blank" class="plink"><i class="fab fa-github"></i>Source Code</a></div>
+        <!-- <button class="pmore" onclick="openModal(1)"><i class="fas fa-expand"></i>View Details <i class="fas fa-arrow-right"></i></button> -->
+      </div>
+
+      <!-- ── PROJECT 3 ── -->
+      <div class="pc" data-tilt>
+        <!-- <div class="pnum">// 03</div> -->
+        <div class="ph"><div class="pt">Loan Default Analysis</div><a href="https://github.com/SoyamKapoor/LoanDefaultAnalysis" target="_blank" class="parr"><i class="fas fa-arrow-up-right-from-square"></i></a></div>
+        <p class="pd">A Python-based machine learning project for predicting loan defaults using the Loans Full Schema dataset. Implements SVM and LightGBM models, with SMOTE for handling class imbalance</p>
+        <div class="pst"><span class="tag tc">Supervised Machine Learning</span><span class="tag to"> Data Preprocessing and Feature Engineering</span><span class="tag tw2">Model Evaluation and Interpretation</span></div>
+        <div class="plinks"><a href="https://github.com/SoyamKapoor/LoanDefaultAnalysis" target="_blank" class="plink"><i class="fab fa-github"></i>Source Code</a></div>
+        <!-- <button class="pmore" onclick="openModal(2)"><i class="fas fa-expand"></i>View Details <i class="fas fa-arrow-right"></i></button> -->
+      </div>
+
+      <!-- ── PROJECT 4 ── -->
+      <div class="pc" data-tilt>
+        <!-- <div class="pnum">// 03</div> -->
+        <div class="ph"><div class="pt">Diseases Diagnosis Prediction</div><a href="https://github.com/SoyamKapoor/disease-diagnosis-prediction" target="_blank" class="parr"><i class="fas fa-arrow-up-right-from-square"></i></a></div>
+        <p class="pd">A Python-based project for predicting diabetes using machine learning models on the PIMA Indians Diabetes dataset. Implements Logistic Regression, Random Forest, and Gradient Boosting, with feature importance analysis and AUC-ROC evaluation (best model: Gradient Boosting, AUC-ROC 0.83).</p>
+        <div class="pst"><span class="tag tc">Machine Learning</span><span class="tag to">Data Analysis</span><span class="tag tw2">Model Evaluation (AUC-ROC, Feature Importance)</span></div>
+        <div class="plinks"><a href="https://github.com/SoyamKapoor/disease-diagnosis-prediction" target="_blank" class="plink"><i class="fab fa-github"></i>Source Code</a></div>
+        <!-- <button class="pmore" onclick="openModal(2)"><i class="fas fa-expand"></i>View Details <i class="fas fa-arrow-right"></i></button> -->
+      </div>
+
+      <!-- ── PROJECT 5 ── -->
+      <div class="pc" data-tilt>
+        <!-- <div class="pnum">// 03</div> -->
+        <div class="ph"><div class="pt">Text Summarization Using NLP Techniques</div><a href="https://github.com/SoyamKapoor/text-summarization-using-NLP-techniques" target="_blank" class="parr"><i class="fas fa-arrow-up-right-from-square"></i></a></div>
+        <p class="pd">A Python project for summarizing news articles using extractive (sentence scoring) and abstractive (BART model) methods. Built with `spacy`, `transformers`, and the CNN/DailyMail dataset, it evaluates summaries using ROUGE scores. Ideal for NLP and machine learning enthusiasts.</p>
+        <div class="pst"><span class="tag tc">Natural Language Processing (NLP)</span><span class="tag to">Transformers & Pre-trained Language Models</span><span class="tag tw2">Text Evaluation using ROUGE Metrics</span></div>
+        <div class="plinks"><a href="https://github.com/SoyamKapoor/text-summarization-using-NLP-techniques" target="_blank" class="plink"><i class="fab fa-github"></i>Source Code</a></div>
+        <!-- <button class="pmore" onclick="openModal(2)"><i class="fas fa-expand"></i>View Details <i class="fas fa-arrow-right"></i></button> -->
+      </div>
+
+      <!-- ── PROJECT 6 ── -->
+      <div class="pc" data-tilt>
+        <!-- <div class="pnum">// 03</div> -->
+        <div class="ph"><div class="pt">Pitch Detection and Gender Classification Using Audio Signal Analysis</div><a href="https://github.com/SoyamKapoor/pitch-detection-and-gender-classification" target="_blank" class="parr"><i class="fas fa-arrow-up-right-from-square"></i></a></div>
+        <p class="pd">A digital signal processing project that detects pitch from speech signals using autocorrelation and classifies speaker gender based on estimated frequency.</p>
+        <div class="pst"><span class="tag tc">Digital Signal Processing (DSP)</span><span class="tag to">Python Audio Processing</span><span class="tag tw2">Feature Extraction & Classification</span></div>
+        <div class="plinks"><a href="https://github.com/SoyamKapoor/pitch-detection-and-gender-classification" target="_blank" class="plink"><i class="fab fa-github"></i>Source Code</a></div>
+        <!-- <button class="pmore" onclick="openModal(2)"><i class="fas fa-expand"></i>View Details <i class="fas fa-arrow-right"></i></button> -->
+      </div>
+
+      <!-- ── PROJECT 7 ── -->
+      <div class="pc" data-tilt>
+        <!-- <div class="pnum">// 03</div> -->
+        <div class="ph"><div class="pt">Speech to Text Converter</div><a href="https://github.com/SoyamKapoor/speech_to_text_using_python" target="_blank" class="parr"><i class="fas fa-arrow-up-right-from-square"></i></a></div>
+        <p class="pd">A Speech to Text Converter using Python's speech_recognition library. It listens to audio from the user's microphone and converts spoken words into text via Google's speech recognition service. Key features include real-time speech-to-text conversion and error handling for unrecognized speech and request issues.</p>
+        <div class="pst"><span class="tag tc">Python</span><span class="tag to">Speech Recognition</span><span class="tag tw2">Natural Language Processing (NLP)</span></div>
+        <div class="plinks"><a href="https://github.com/SoyamKapoor/speech_to_text_using_python" target="_blank" class="plink"><i class="fab fa-github"></i>Source Code</a></div>
+        <!-- <button class="pmore" onclick="openModal(2)"><i class="fas fa-expand"></i>View Details <i class="fas fa-arrow-right"></i></button> -->
+      </div>
+
+      <!-- ── PROJECT 8 ── -->
+      <div class="pc" data-tilt>
+        <!-- <div class="pnum">// 03</div> -->
+        <div class="ph"><div class="pt">Employee Attrition Prediction</div><a href="https://github.com/SoyamKapoor/predict-employee-attrition" target="_blank" class="parr"><i class="fas fa-arrow-up-right-from-square"></i></a></div>
+        <p class="pd">A machine learning project that predicts employee attrition using logistic regression. Includes data preprocessing, EDA, model training, evaluation, and model interpretability with LIME. Actionable insights are also provided to support HR decision-making.</p>
+        <div class="pst"><span class="tag tc">Classification Modeling</span><span class="tag to">Data Visualization & EDA</span><span class="tag tw2">Explainable AI (SHAP)</span></div>
+        <div class="plinks"><a href="https://github.com/SoyamKapoor/predict-employee-attrition" target="_blank" class="plink"><i class="fab fa-github"></i>Source Code</a></div>
+        <!-- <button class="pmore" onclick="openModal(2)"><i class="fas fa-expand"></i>View Details <i class="fas fa-arrow-right"></i></button> -->
+      </div>
+
+      <!-- ── PROJECT 9 ── -->
+      <div class="pc" data-tilt>
+        <!-- <div class="pnum">// 03</div> -->
+        <div class="ph"><div class="pt">Real Time Speech Recognition System</div><a href="https://github.com/SoyamKapoor/real-time-speech-recognition-system" target="_blank" class="parr"><i class="fas fa-arrow-up-right-from-square"></i></a></div>
+        <p class="pd">A lightweight voice-based authentication system using MFCC features and HMM. Built with Python (librosa, hmmlearn), no GPU or deep learning required. Ideal for secure, touchless access on PCs or Raspberry Pi.</p>
+        <div class="pst"><span class="tag tc">Mel-Frequency Cepstral Coefficients (MFCC) Extraction</span><span class="tag to">Hidden Markov Models (HMM)</span><span class="tag tw2">Python Audio Processing</span></div>
+        <div class="plinks"><a href="https://github.com/SoyamKapoor/real-time-speech-recognition-system" target="_blank" class="plink"><i class="fab fa-github"></i>Source Code</a></div>
+        <!-- <button class="pmore" onclick="openModal(2)"><i class="fas fa-expand"></i>View Details <i class="fas fa-arrow-right"></i></button> -->
+      </div>
+
+      <!-- ── PROJECT 10 ── -->
+      <div class="pc" data-tilt>
+        <!-- <div class="pnum">// 03</div> -->
+        <div class="ph"><div class="pt">Image Compression using JPEG and Wavelet Techniques</div><a href="https://github.com/SoyamKapoor/image-compression-analysis" target="_blank" class="parr"><i class="fas fa-arrow-up-right-from-square"></i></a></div>
+        <p class="pd">Comparative analysis of JPEG (DCT-based) and JPEG2000 (Wavelet-based) image compression using Python, with metrics like PSNR, SSIM, and visual evaluation</p>
+        <div class="pst"><span class="tag tc">Image Compression Techniques (JPEG DCT, Wavelet Transform)</span><span class="tag to">Quality Metrics Analysis (PSNR, SSIM)</span><span class="tag tw2">Python Image Processing (OpenCV, PyWavelets, NumPy, Matplotlib)</span></div>
+        <div class="plinks"><a href="https://github.com/SoyamKapoor/image-compression-analysis" target="_blank" class="plink"><i class="fab fa-github"></i>Source Code</a></div>
+        <!-- <button class="pmore" onclick="openModal(2)"><i class="fas fa-expand"></i>View Details <i class="fas fa-arrow-right"></i></button> -->
+      </div>
+
+
+      <!-- ── PROJECT 11 ── -->
+      <div class="pc" data-tilt>
+        <!-- <div class="pnum">// 03</div> -->
+        <div class="ph"><div class="pt">Housing Price Prediction</div><a href="https://github.com/SoyamKapoor/house_price_prediction" target="_blank" class="parr"><i class="fas fa-arrow-up-right-from-square"></i></a></div>
+        <p class="pd">A Machine Learning project to predict housing prices using the Boston Housing Dataset. Includes implementations of Linear Regression (from scratch), Random Forest, and simplified XGBoost. Covers data preprocessing, model evaluation, and feature importance visualization.</p>
+        <div class="pst"><span class="tag tc">Machine Learning</span><span class="tag to">Data Preprocessing</span><span class="tag tw2">Model Evaluation & Performance Metrics</span></div>
+        <div class="plinks"><a href="https://github.com/SoyamKapoor/house_price_prediction" target="_blank" class="plink"><i class="fab fa-github"></i>Source Code</a></div>
+        <!-- <button class="pmore" onclick="openModal(2)"><i class="fas fa-expand"></i>View Details <i class="fas fa-arrow-right"></i></button> -->
+      </div>
+
+      <!-- ── PROJECT 12 ── -->
+      <div class="pc" data-tilt>
+        <!-- <div class="pnum">// 03</div> -->
+        <div class="ph"><div class="pt">Credit Card Fraud Detection System Using Random Forest</div><a href="https://github.com/SoyamKapoor/fraud-detection-system-using-random-forest-classification" target="_blank" class="parr"><i class="fas fa-arrow-up-right-from-square"></i></a></div>
+        <p class="pd">A machine learning-based Credit Card Fraud Detection System using Random Forest with SMOTE handling for class imbalance, evaluation metrics, and a CLI for real-time prediction</p>
+        <div class="pst"><span class="tag tc">Machine Learning Modeling (Random Forest Classifier)</span><span class="tag to">Imbalanced Data Handling (SMOTE)</span><span class="tag tw2">Data Preprocessing & Feature Engineering</span></div>
+        <div class="plinks"><a href="https://github.com/SoyamKapoor/fraud-detection-system-using-random-forest-classification" target="_blank" class="plink"><i class="fab fa-github"></i>Source Code</a></div>
+        <!-- <button class="pmore" onclick="openModal(2)"><i class="fas fa-expand"></i>View Details <i class="fas fa-arrow-right"></i></button> -->
+      </div>
+
+      <!-- ── PROJECT 13 ── -->
+      <div class="pc" data-tilt>
+        <!-- <div class="pnum">// 03</div> -->
+        <div class="ph"><div class="pt">IMDB Sentiment Analysis using Logistic Regression</div><a href="https://github.com/SoyamKapoor/sentiment-analysis-imdb-reviews" target="_blank" class="parr"><i class="fas fa-arrow-up-right-from-square"></i></a></div>
+        <p class="pd">A machine learning project that classifies IMDB movie reviews as positive or negative using NLP preprocessing, TF-IDF vectorization, and Logistic Regression. Trained on a cleaned version of the 50K IMDB dataset, with model evaluation and predictions included</p>
+        <div class="pst"><span class="tag tc">Natural Language Processing (NLP)</span><span class="tag to">Machine Learning</span><span class="tag tw2">TF-IDF Vectorization</span></div>
+        <div class="plinks"><a href="https://github.com/SoyamKapoor/sentiment-analysis-imdb-reviews" target="_blank" class="plink"><i class="fab fa-github"></i>Source Code</a></div>
+        <!-- <button class="pmore" onclick="openModal(2)"><i class="fas fa-expand"></i>View Details <i class="fas fa-arrow-right"></i></button> -->
+      </div>
+
+      <!-- ── PROJECT 14 ── -->
+      <div class="pc" data-tilt>
+        <!-- <div class="pnum">// 03</div> -->
+        <div class="ph"><div class="pt">Speech Enhancement using Spectral Subtraction</div><a href="https://github.com/SoyamKapoor/audio_signal_enhancement_for_noisy_environments" target="_blank" class="parr"><i class="fas fa-arrow-up-right-from-square"></i></a></div>
+        <p class="pd">A Python-based speech enhancement system using Spectral Subtraction to reduce background noise in audio files. It processes .wav files, applies frame-wise noise reduction, computes SNR, and generates before/after spectrograms for visualization</p>
+        <div class="pst"><span class="tag tc">Spectral Subtraction Noise Reduction</span><span class="tag to">FFT-Based Audio Signal Processing</span><span class="tag tw2">Python Audio Analysis and Visualization</span></div>
+        <div class="plinks"><a href="https://github.com/SoyamKapoor/audio_signal_enhancement_for_noisy_environments" target="_blank" class="plink"><i class="fab fa-github"></i>Source Code</a></div>
+        <!-- <button class="pmore" onclick="openModal(2)"><i class="fas fa-expand"></i>View Details <i class="fas fa-arrow-right"></i></button> -->
+      </div>
+
+      <!-- ── PROJECT 15 ── -->
+      <div class="pc" data-tilt>
+        <!-- <div class="pnum">// 03</div> -->
+        <div class="ph"><div class="pt">Virtual Assistant Using C++</div><a href="https://github.com/SoyamKapoor/virtual_assistant" target="_blank" class="parr"><i class="fas fa-arrow-up-right-from-square"></i></a></div>
+        <p class="pd">A C++-based virtual assistant that can interact with the user, providing voice-based responses. It can perform various tasks like opening websites, providing current time and date, and interacting with the user based on voice commands</p>
+        <div class="pst"><span class="tag tc">C++ Programming</span><span class="tag to">Object-Oriented Programming (OOP)</span><span class="tag tw2">Automation / System Programming</span></div>
+        <div class="plinks"><a href="https://github.com/SoyamKapoor/virtual_assistant" target="_blank" class="plink"><i class="fab fa-github"></i>Source Code</a></div>
+        <!-- <button class="pmore" onclick="openModal(2)"><i class="fas fa-expand"></i>View Details <i class="fas fa-arrow-right"></i></button> -->
+      </div>
+
+      <!-- ── PROJECT 16 ── -->
+      <div class="pc" data-tilt>
+        <!-- <div class="pnum">// 03</div> -->
+        <div class="ph"><div class="pt">Smart Dustbin using Arduino Uno</div><a href="https://github.com/SoyamKapoor/smart_dustbin_using_arduino_uno" target="_blank" class="parr"><i class="fas fa-arrow-up-right-from-square"></i></a></div>
+        <p class="pd">An Arduino Uno-powered smart dustbin with ultrasonic sensors for automatic lid opening and fill-level monitoring, offering a hygienic and efficient waste disposal solution for public spaces</p>
+        <div class="pst"><span class="tag tc">Arduino Programming</span><span class="tag to">Embedded Systems</span><span class="tag tw2">Sensor Integration (Ultrasonic - HC-SR04)</span></div>
+        <div class="plinks"><a href="https://github.com/SoyamKapoor/smart_dustbin_using_arduino_uno" target="_blank" class="plink"><i class="fab fa-github"></i>Source Code</a></div>
+        <!-- <button class="pmore" onclick="openModal(2)"><i class="fas fa-expand"></i>View Details <i class="fas fa-arrow-right"></i></button> -->
+      </div>
+
+      <!-- ── PROJECT 17 ── -->
+      <div class="pc" data-tilt>
+        <!-- <div class="pnum">// 03</div> -->
+        <div class="ph"><div class="pt">Future of Smart Living: IoT-Driven Home Automation in Cisco Packet Tracer</div><a href="https://github.com/SoyamKapoor/future_of_smart_living_iot_driven_home_automation_in_cisco_packet_tracer" target="_blank" class="parr"><i class="fas fa-arrow-up-right-from-square"></i></a></div>
+        <p class="pd">Future of Smart Living: IoT-Driven Home Automation in Cisco Packet Tracer demonstrates the integration of IoT devices in a smart home environment for remote control and automation.</p>
+        <div class="pst"><span class="tag tc">Internet of Things (IoT)</span><span class="tag to">Network Simulation (Cisco Packet Tracer)</span><span class="tag tw2">Automation Systems / Smart Home Automation</span></div>
+        <div class="plinks"><a href="https://github.com/SoyamKapoor/future_of_smart_living_iot_driven_home_automation_in_cisco_packet_tracer" target="_blank" class="plink"><i class="fab fa-github"></i>Source Code</a></div>
+        <!-- <button class="pmore" onclick="openModal(2)"><i class="fas fa-expand"></i>View Details <i class="fas fa-arrow-right"></i></button> -->
+      </div>
+
+      <!-- ── PROJECT 18 ── -->
+      <div class="pc" data-tilt>
+        <!-- <div class="pnum">// 03</div> -->
+        <div class="ph"><div class="pt">Smart SyncEdge Platform</div><a href="https://github.com/SoyamKapoor/smart_syncedge_platform" target="_blank" class="parr"><i class="fas fa-arrow-up-right-from-square"></i></a></div>
+        <p class="pd">The Smart SyncEdge Platform is an IoT-based home automation system using ESP32 to control appliances via physical switches, Google Home, and Arduino Cloud. It supports real-time temperature and humidity monitoring with DHT11 sensors and ensures synchronized appliance management across all interfaces.</p>
+        <div class="pst"><span class="tag tc">Remote Device Management · ESP32 Programming</span><span class="tag to">Internet of Things (IoT)</span></div>
+        <div class="plinks"><a href="https://github.com/SoyamKapoor/smart_syncedge_platform" target="_blank" class="plink"><i class="fab fa-github"></i>Source Code</a></div>
+        <!-- <button class="pmore" onclick="openModal(2)"><i class="fas fa-expand"></i>View Details <i class="fas fa-arrow-right"></i></button> -->
+      </div>
+
+      <!-- ── PROJECT 19 ── -->
+      <div class="pc" data-tilt>
+        <!-- <div class="pnum">// 03</div> -->
+        <div class="ph"><div class="pt">Car Parking Slot Identifier</div><a href="https://github.com/SoyamKapoor/car_parking_slot_identifier" target="_blank" class="parr"><i class="fas fa-arrow-up-right-from-square"></i></a></div>
+        <p class="pd">This project is designed to detect available parking spaces in a lot, displaying a green light for vacant spots and a red light for occupied ones. It helps drivers easily identify free parking spaces in real time</p>
+        <div class="pst"><span class="tag tc">Digital Electronics</span><span class="tag to">Sensor Integration (IR Sensors)</span><span class="tag tw2">Embedded Systems / Hardware Systems Design</span></div>
+        <div class="plinks"><a href="https://github.com/SoyamKapoor/car_parking_slot_identifier" target="_blank" class="plink"><i class="fab fa-github"></i>Source Code</a></div>
+        <!-- <button class="pmore" onclick="openModal(2)"><i class="fas fa-expand"></i>View Details <i class="fas fa-arrow-right"></i></button> -->
+      </div>
+
+      <!-- ── PROJECT 20 ── -->
+      <div class="pc" data-tilt>
+        <!-- <div class="pnum">// 03</div> -->
+        <div class="ph"><div class="pt">Data Analysis and Visualization of Students Exam Scores: Extended Dataset</div><a href="https://github.com/SoyamKapoor/data-analysis-student-exam-score" target="_blank" class="parr"><i class="fas fa-arrow-up-right-from-square"></i></a></div>
+        <p class="pd">A Python-based data analysis and visualization project on the Students Exam Scores: Extended Dataset. Includes data cleaning, statistical summaries (mean, mode, std dev), and visualizations with histograms and normal distribution overlays to uncover insights about student performance.</p>
+        <div class="pst"><span class="tag tc">Data Analysis & Preprocessing</span><span class="tag to">Statistical Analysis</span><span class="tag tw2">Data Visualization</span></div>
+        <div class="plinks"><a href="https://github.com/SoyamKapoor/data-analysis-student-exam-score" target="_blank" class="plink"><i class="fab fa-github"></i>Source Code</a></div>
+        <!-- <button class="pmore" onclick="openModal(2)"><i class="fas fa-expand"></i>View Details <i class="fas fa-arrow-right"></i></button> -->
+      </div>
+
+      <!--
+        ── ADD MORE PROJECTS: copy a .pc block, increment number,
+           add openModal(N) where N matches a new MODAL_DATA entry in main.js ──
+      -->
+
+    </div>
+  </div>
+</div>
+
+<!-- ═══ PROJECT MODALS ═══ -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
+  <div class="modal" id="modal">
+    <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
+    <div class="modal-num"   id="mNum"></div>
+    <div class="modal-title" id="mTitle"></div>
+    <div class="modal-img"><div class="modal-img-placeholder"><i class="fas fa-image"></i><span>// project screenshot</span></div></div>
+    <div class="modal-desc"  id="mDesc"></div>
+    <div class="modal-stack" id="mStack"></div>
+    <div class="modal-links" id="mLinks"></div>
+  </div>
+</div>
+<div class="sdiv"></div>
+
+<!-- ═══ CERTIFICATIONS ═══ -->
+<section id="certifications" class="alt">
+  <div class="si">
+    <div class="stag rv">Credentials</div>
+    <h2 class="rv gh scramble-head" data-g="CERTS" data-scramble="CERTIFICATIONS">CERTIFICATIONS</h2>
+    <p class="ssub rv">Verified skills and continuous learning achievements.</p>
+    <div class="cgrid">
+
+      <!-- ── CERT 1 — EDIT ALL FIELDS ── -->
+    <a href="https://www.credly.com/badges/eade92aa-e9b9-4444-a12a-0e3db7882e99/public_url" class="cc rv">
+      <!-- <div class="cc rv"> -->
+        <div class="cc-ic"><i class="fas fa-certificate"></i></div>
+        <div>
+          <!-- EDIT: Cert name -->
+          <div class="cc-name">MongoDB Overview: Core Concepts and Architecture</div>
+          <!-- EDIT: Platform e.g. "Coursera · DeepLearning.AI" -->
+          <div class="cc-plat">MongoDB</div>
+          <!-- EDIT: Year -->
+          <div class="cc-yr">Dec 2025</div>
+        </div>
+      <!-- </div> -->
+    </a>
+
+      <!-- ── CERT 2 ── -->
+    <a href="https://www.coursera.org/account/accomplishments/records/HXLFZ8RGTD5N" class="cc rv">
+      <!-- <div class="cc rv d1"> -->
+        <div class="cc-ic"><i class="fas fa-award"></i></div>
+        <div>
+          <div class="cc-name">Strategically Build and Engage Your Network on LinkedIn </div>
+          <div class="cc-plat">Coursera</div>
+          <div class="cc-yr">Jan 2024</div>
+        </div>
+      <!-- </div> -->
+    </a>
+
+      <!-- ── CERT 3 ── -->
+      <a href="https://courses.cognitiveclass.ai/certificates/60ea50e91e54446aa0ca9465f6fb3014" class="cc rv d2">
+      <!-- <div class="cc rv d2"> -->
+        <div class="cc-ic"><i class="fas fa-medal"></i></div>
+        <div>
+          <div class="cc-name">Python 101 for Data Science </div>
+          <div class="cc-plat">IBM</div>
+          <div class="cc-yr">Apr 2025</div>
+        </div>
+      <!-- </div> -->
+    </a>
+
+      <div class="cc rv d2">
+        <div class="cc-ic"><i class="fas fa-certificate"></i></div>
+        <div>
+          <div class="cc-name">Introduction to Python</div>
+          <div class="cc-plat">DataCamp</div>
+          <div class="cc-yr">Jul 2024</div>
+        </div>
+      </div>
+
+
+      <div class="cc rv d2">
+        <div class="cc-ic"><i class="fas fa-award"></i></div>
+        <div>
+          <div class="cc-name">Github Concepts</div>
+          <div class="cc-plat">DataCamp</div>
+          <div class="cc-yr">Oct 2024</div>
+        </div>
+      </div>
+
+      <div class="cc rv d2">
+        <div class="cc-ic"><i class="fas fa-medal"></i></div>
+        <div>
+          <div class="cc-name">Fiverr Masterclass - Starting Right to become Top Rated</div>
+          <div class="cc-plat">Skillshare</div>
+          <div class="cc-yr">Jul 2024</div>
+        </div>
+      </div>
+    
+    <a href="https://www.coursera.org/account/accomplishments/verify/ZPGMAKEKACNU" class="cc rv">
+      <!-- <div class="cc rv d2"> -->
+        <div class="cc-ic"><i class="fas fa-certificate"></i></div>
+        <div>
+          <div class="cc-name">Foundations of cybersecurity</div>
+          <div class="cc-plat">Coursera</div>
+          <div class="cc-yr">Aug 2023</div>
+        </div>
+      <!-- </div> -->
+    </a>
+
+    <a href="https://www.coursera.org/account/accomplishments/verify/D9UJTFT8ND5Q" class="cc rv">
+      <!-- <div class="cc rv d2"> -->
+        <div class="cc-ic"><i class="fas fa-award"></i></div>
+        <div>
+          <div class="cc-name">Introduction to Github and Visual Studio Code</div>
+          <div class="cc-plat">Coursera</div>
+          <div class="cc-yr">Aug 2023</div>
+        </div>
+      <!-- </div> -->
+    </a>
+
+    <a href="https://www.credly.com/badges/67679e63-ced0-4392-92a8-9d5d4598cc76/public_url" class="cc rv">
+      <!-- <div class="cc rv d2"> -->
+        <div class="cc-ic"><i class="fas fa-medal"></i></div>
+        <div>
+          <div class="cc-name">Python for Data Science Badge</div>
+          <div class="cc-plat">IBM</div>
+          <div class="cc-yr">Apr 2025</div>
+        </div>
+      <!-- </div> -->
+    </a>
+
+      <!-- ── COPY .cc BLOCK ABOVE FOR EACH ADDITIONAL CERT ── -->
+
+    </div>
+  </div>
+</section>
+<div class="sdiv"></div>
+
+<!-- ═══ PUBLICATION ═══ -->
+<section id="publications">
+  <div class="si">
+    <div class="stag rv">Research</div>
+    <h2 class="rv gh scramble-head" data-g="IEEE" data-scramble="PUBLICATION">PUBLICATION</h2>
+    <p class="ssub rv">Peer-reviewed research contributing to the global scientific community.</p>
+    <div class="pubw rv">
+      <!-- <div class="pub-seal">
+         <span class="ieee">IEEE Xplore</span><span>Xplore</span><span>✦</span><span>Peer</span><span>Reviewed</span> -->
+         <!-- <span class="ieee">IEEE</span><span>Xplore</span><span>✦</span><span>Peer</span><span>Reviewed</span>
+      </div> -->
+      <div class="pub-seal">
+        <span class="ieee">IEEE</span><span>Xplore</span>
+      </div>
+      <div class="pubc">
+        <!-- EDIT: Full paper title -->
+        <div class="pub-t">Evaluating Deep Learning Models for Prohibited Item Detection in Airport X-ray Images</div>
+        <!-- EDIT: Your name + co-authors -->
+        <div class="pub-m"><strong>Authors:</strong> Soyam Kapoor, Muhammad Ahsan Kareem, Sibgha Mursaleen, Muhammad Usman Sarwar</div>
+        <!-- EDIT: Full conference name -->
+        <div class="pub-m"><strong>Conference:</strong> International Conference on Emerging Technologies (ICOMET) 2026, Sukkur IBA University</div>
+        <div class="pub-m"><strong>Publisher:</strong> IEEE Xplore Digital Library</div>
+        <div class="pub-badge"><i class="fas fa-circle"></i>Accepted — Presenting &amp; Publishing April 2026</div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="sdiv"></div>
+
+<!-- ═══ CONTACT ═══ -->
+<section id="contact" class="alt">
+  <div class="si">
+    <div class="stag rv" style="display:flex;justify-content:center">Contact</div>
+    <h2 class="rv gh scramble-head" style="text-align:center;display:block" data-g="HELLO" data-scramble="LET'S WORK TOGETHER">LET'S WORK TOGETHER</h2>
+    <p class="ssub rv" style="max-width:520px;text-align:center;margin-left:auto;margin-right:auto">Have a role, a project, or just want to talk data? Drop me a message — I respond within 24 hours.</p>
+    <div class="cl">
+      <div class="cfw rv">
+        <!--
+          Formspree setup: https://formspree.io → sign up → create form → copy your ID
+          EDIT: Replace YOUR_FORMSPREE_ID below
+        -->
+        <form class="cform" id="cf" action="https://formspree.io/f/maqpvykg" method="POST">
+          <div class="frow">
+            <div class="fg">
+              <label class="fl">Your Name</label>
+              <input class="fi" type="text" name="name" placeholder="John Doe" required/>
+            </div>
+            <div class="fg">
+              <label class="fl">Your Email</label>
+              <input class="fi" type="email" name="email" placeholder="john@email.com" required/>
+            </div>
+          </div>
+          <div class="fg">
+            <label class="fl">Message</label>
+            <!-- EDIT: Update placeholder with your own name -->
+            <textarea class="fta" name="message" placeholder="Hi Soyam, I'd love to connect about..." required></textarea>
+          </div>
+          <div class="fsuc" id="fsuc">✓ Message sent! I'll get back to you within 24 hours.</div>
+          <button type="submit" class="bsend rph"><i class="fas fa-paper-plane"></i>Send Message</button>
+          <div class="fsocs">
+            <!-- EDIT: Your email, LinkedIn, and GitHub URLs -->
+            <a href="mailto:kapoorsoyam5@gmail.com"              class="fsb" title="Email"><i class="fas fa-envelope"></i></a>
+            <a href="https://www.linkedin.com/in/soyamkapoor"      target="_blank" class="fsb" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/soyamkapoor"             target="_blank" class="fsb" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.kaggle.com/soyamkapoor" target="_blank" class="fsb" title="Kaggle"><i class="fab fa-kaggle"></i></a>
+            <a href="https://www.researchgate.net/profile/Soyam-Kapoor" target="_blank" class="fsb" title="ResearchGate"><i class="fab fa-researchgate"></i></a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <!-- EDIT: Your name + year -->
+  <div class="flogo">SOYAM<span class="dot">.</span></div>
+  <div class="ftxt">© 2025 Soyam Kapoor · Crafted with passion</div>
+  <div class="flinks">
+    <a href="#hero">Top</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+
+<!-- Back to top button -->
+<div id="bt" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-arrow-up"></i></div>
+
+<!-- ═══════════════════════════════════════
+     EXTERNAL LIBRARIES — loaded before our JS
+═══════════════════════════════════════ -->
+<!-- Lenis smooth scroll -->
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<!-- Three.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<!-- Chart.js (radar chart) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+
+<!-- ═══════════════════════════════════════
+     OUR JS FILES — always last, always defer
+═══════════════════════════════════════ -->
+<script defer src="js/three-bg.js"></script>
+<script defer src="js/animations.js"></script>
+<script defer src="js/main.js"></script>
+
+</body>
+</html>
