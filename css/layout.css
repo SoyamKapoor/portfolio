@@ -170,9 +170,9 @@ footer{padding:2.5rem 5%;border-top:1px solid var(--b);display:flex;align-items:
   .hbg{display:flex}
   section{padding:5rem 5%}
   .proj-section{padding:5rem 5%}
-  .tli{grid-template-columns:1fr;gap:0}
+  /* .tli{grid-template-columns:1fr;gap:0}
   .tld{text-align:left;display:flex;gap:1rem;align-items:center;margin-bottom:.6rem}
-  .tlv{display:none}
+  .tlv{display:none} */
   .bento{grid-template-columns:1fr}
   .pubw{grid-template-columns:1fr;gap:2rem;padding:2rem}
   .frow{grid-template-columns:1fr}
@@ -186,6 +186,11 @@ footer{padding:2.5rem 5%;border-top:1px solid var(--b);display:flex;align-items:
   .pframe::before{animation:none}
   .pframe::after{animation:none}
   .blob{display:none}
+  .tli{grid-template-columns:1fr;gap:.5rem}
+  .tld{text-align:left;display:flex;flex-direction:column;gap:.25rem;margin-bottom:.6rem}
+  .tlv{display:none}
+  .tlr{font-size:1.2rem}
+  .tlb li{font-size:.85rem}
 }
 
 @media(max-width:480px){

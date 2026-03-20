@@ -161,8 +161,12 @@ radar-wrap{background:rgba(255,255,255,.022);backdrop-filter:blur(18px);border:1
 
 @media(max-width:768px){
   .pc,.sk,.cc,.atile,.radar-wrap,.pubw,.modal,.mdr{
-    backdrop-filter:none;
-    -webkit-backdrop-filter:none;
+   backdrop-filter:none;
+   -webkit-backdrop-filter:none;
+   .frow{grid-template-columns:1fr}
+   .fsocs{flex-wrap:wrap;gap:.6rem}
+   .fsb{width:44px;height:44px;font-size:1rem}
+   .cfw{padding:0 .5rem}
   }
   .pc{transform:none!important}
   .proj-row{grid-template-columns:1fr}

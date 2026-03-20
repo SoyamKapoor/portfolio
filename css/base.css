@@ -126,5 +126,8 @@ body::after{
   body::after{opacity:.15}
   .rv,.rvl,.rvr,.rvs{
     transform:translateY(20px);
+    opacity:1!important;
+    transform:none!important;
+    transition:none!important;
   }
 }
