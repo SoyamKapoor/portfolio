@@ -129,5 +129,8 @@ body::after{
     opacity:1!important;
     transform:none!important;
     transition:none!important;
+    #loader.hide{
+    transition:clip-path .4s cubic-bezier(.77,0,.18,1),opacity .3s ease;
+  }
   }
 }

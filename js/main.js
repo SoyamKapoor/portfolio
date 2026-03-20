@@ -232,7 +232,7 @@ if (cf) {
         document.getElementById('fsuc').style.display = 'block';
         cf.reset();
         b.innerHTML = '<i class="fas fa-check"></i> Sent!';
-        setTimeout(() => { b.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message'; b.disabled = false; }, 4000);
+        setTimeout(() => { b.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message'; b.disabled = false; }, 1200);
       } else {
         b.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
         b.disabled  = false;
