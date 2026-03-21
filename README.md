@@ -2,7 +2,7 @@
 
 > A fully custom-built personal portfolio website showcasing my journey as a Data Scientist, Machine Learning Engineer, and final-year Computer Systems Engineering student.
 
-**Live Site →** [your-netlify-link.netlify.app](https://your-netlify-link.netlify.app)
+**Live Site →** [https://soyamkapoor.github.io/portfolio/](https://soyamkapoor.github.io/portfolio/)
 
 ---
 
