@@ -239,5 +239,4 @@ function startTyping() {
 }
 
 /* Export for use in main.js */
-window.animCount = animCount;
 window._portfolio = { splitText, startTyping, initScramble };

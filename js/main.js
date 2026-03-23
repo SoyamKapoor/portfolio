@@ -21,46 +21,13 @@ window.addEventListener('load', () => {
   if (lpct) lpct.textContent = '100%';
   setTimeout(() => {
     document.getElementById('loader').classList.add('hide');
+    /* Trigger hero animations */
     if (window._portfolio) {
       window._portfolio.splitText();
       window._portfolio.startTyping();
       window._portfolio.initScramble();
     }
-    // Trigger hero counters after loader hides
-    setTimeout(() => {
-      document.querySelectorAll('.hstats [data-target]').forEach(el => {
-        const v = parseInt(el.dataset.target);
-        if (!isNaN(v) && window.animCount) window.animCount(el, v);
-      });
-    }, 300);
   }, 2400);
-});
-
-// window.addEventListener('load', () => {
-//   clearInterval(lIv);
-//   if (lpct) lpct.textContent = '100%';
-//   setTimeout(() => {
-//   document.getElementById('loader').classList.add('hide');
-//   if (window._portfolio) {
-//     window._portfolio.splitText();
-//     window._portfolio.startTyping();
-//     window._portfolio.initScramble();
-//   }
-//   // Trigger hero counters after loader hides
-//   document.querySelectorAll('.hstats [data-target]').forEach(el => {
-//     const v = parseInt(el.dataset.target);
-//     if (!isNaN(v)) animCount(el, v);
-//   });
-// }, 2400);
-  // setTimeout(() => {
-  //   document.getElementById('loader').classList.add('hide');
-  //   /* Trigger hero animations */
-  //   if (window._portfolio) {
-  //     window._portfolio.splitText();
-  //     window._portfolio.startTyping();
-  //     window._portfolio.initScramble();
-  //   }
-  // }, 2400);
 });
 
 /* ═══ LENIS SMOOTH SCROLL ═══ */
