@@ -122,7 +122,8 @@
 .pub-seal .ieee{font-family:var(--fh);font-size:2.2rem;letter-spacing:2px;line-height:1}
 .pub-seal span:not(.ieee){font-size:.6rem;letter-spacing:2px;opacity:.8}
 .pubc{position:relative;z-index:1}
-.pub-t{font-family:var(--fh);font-size:1.55rem;letter-spacing:.5px;margin-bottom:.82rem;line-height:1.3}
+.pub-t{font-family:var(--fh);font-size:1.55rem;letter-spacing:.5px;margin-bottom:.82rem;line-height:1.3;display:block;color:var(--t);text-decoration:none;transition:color .25s,transform .25s}
+.pub-t:hover{color:var(--acc);transform:translateX(2px)}
 .pub-m{font-size:.88rem;color:var(--t2);margin-bottom:.35rem;line-height:1.65}
 .pub-m strong{color:var(--t)}
 .pub-badge{display:inline-flex;align-items:center;gap:.4rem;background:rgba(0,245,212,.07);border:1px solid var(--cg);color:var(--c);padding:.28rem .9rem;border-radius:100px;font-family:var(--fm);font-size:.71rem;margin-top:.82rem}
